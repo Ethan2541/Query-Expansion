@@ -1,6 +1,6 @@
 # Query-Expansion
 
-Re-implementation of the research paper "Local and Global Query Expansion for Hierarchical Complex Topics" written by Dalton, Naseri, Dietz, and Allan. It is part of the first year course [Information Retrieval and Natural Language Processing](https://dac.lip6.fr/master/enseignement/rital/) from Sorbonne Université's computer science master.
+Degraded implementation of the research paper "Local and Global Query Expansion for Hierarchical Complex Topics" written by Dalton, Naseri, Dietz, and Allan. It is part of the first year course [Information Retrieval and Natural Language Processing](https://dac.lip6.fr/master/enseignement/rital/) from Sorbonne Université's computer science master.
 
 
 ## Expected Features

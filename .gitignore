@@ -1,3 +1,4 @@
 __pycache__
 archives
 extracted_data
+models/vectorizer.pickle

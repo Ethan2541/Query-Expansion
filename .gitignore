@@ -1,6 +1,2 @@
 __pycache__
-archives
-extracted_data
-long-abstracts_lang=en.ttl
-models/vectorizer.pickle
-old
+models

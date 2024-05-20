@@ -4,7 +4,6 @@ def DCG(query_id, documents_ids, qrels):
     dcg = 0
     for i, doc_id in enumerate(documents_ids):
         if (query_id, doc_id) in qrels:
-            print(i)
             dcg += qrels[(query_id, doc_id)] / np.log2(i + 2)
     return dcg
 
@@ -19,18 +18,12 @@ def NDCG(query_id, documents_ids, qrels):
 def AP(query_id, documents_ids, qrels):
     precision = 0
     n_relevant_docs_retrieved = 0
-    relevant_docs = [doc_id for doc_id in documents_ids if (query_id, doc_id) in qrels]
-    for i, doc in enumerate(documents_ids):
-        if (query_id, doc) in qrels:
+    relevant_docs = [doc_id for (q_id, doc_id) in qrels if query_id == q_id]
+    for i, doc_id in enumerate(documents_ids):
+        if (query_id, doc_id) in qrels:
             n_relevant_docs_retrieved += 1
-            precision += qrels[(query_id, doc)] * n_relevant_docs_retrieved / (i + 1)
+            precision += qrels[(query_id, doc_id)] * n_relevant_docs_retrieved / (i + 1)
     return precision / len(relevant_docs)
-
-def MAP(query_ids, documents_ids, qrels):
-    avg_precision = 0
-    for query_id in query_ids:
-        avg_precision += AP(query_id, documents_ids, qrels)
-    return avg_precision / len(query_ids)
 
 
 def RPrec(query_id, documents_ids, qrels):

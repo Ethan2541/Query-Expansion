@@ -10,7 +10,10 @@ def embedding_expansion(model, headings):
     tree_embeddings = []
     for heading in headings:
         heading_words = heading.split()
-        most_similar = model.wv.most_similar(positive=heading_words, topn=3)
+        try:
+            most_similar = model.wv.most_similar(positive=heading_words, topn=3)
+        except KeyError:
+            most_similar = []
         enhanced_heading = set(heading_words + [word for word, _ in most_similar])
 
         # Get the embeddings for the enhanced heading

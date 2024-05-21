@@ -130,7 +130,7 @@ class EmbeddingBaseline(object):
         top_k_indexes = np.argsort(scores)[::-1][:k]
         return self.documents_ids[top_k_indexes], scores[top_k_indexes]
 
-    def eval_query(self, query, k=1000, expansion=None):
+    def eval_query(self, query, k=1000, expansion=False):
         scores = {
         "NDCG": metrics.NDCG,
         "MAP": metrics.AP,
@@ -143,7 +143,7 @@ class EmbeddingBaseline(object):
             results[metric_name] = metric_callback(query[0], docs, self.dataset["relevances"])
         return results
     
-    def eval_model(self, k=1000, expansion=None):
+    def eval_model(self, k=1000, expansion=False):
         results = {
             "NDCG": [],
             "MAP": [],
